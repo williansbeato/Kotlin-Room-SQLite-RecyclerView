@@ -1,11 +1,9 @@
 package com.example.apepe.database.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.apepe.model.Task
 
+@Dao
 interface TaskDao {
 
     @Query("SELECT * FROM tasks ORDER BY id DESC")

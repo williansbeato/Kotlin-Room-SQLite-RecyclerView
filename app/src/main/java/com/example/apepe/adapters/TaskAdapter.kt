@@ -10,28 +10,7 @@ import com.example.apepe.database.AppDatabase
 import com.example.apepe.database.dao.TaskDao
 import com.example.apepe.model.Task
 
-class TaskAdapter(val  listener: TaskAdapterListener, context: Context): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
-
-    private val dao: TaskDao
-    private var tasks : MutableList<Task>
-
-
-    fun save(task: Task): Int{
-        return if(task.id == 0L){
-            task.id = dao.insert(task)
-
-            val position = 0
-            tasks.add(position, task)
-            notifyItemInserted(position)
-            position
-        }else{
-            dao.update(task)
-
-            val position = tasks.indexOf(task)
-            notifyItemChanged(position)
-            position
-        }
-    }
+class TaskAdapter(var tasks: MutableList<Task>, val listener: TaskAdapterListener, context: Context): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -40,12 +19,12 @@ class TaskAdapter(val  listener: TaskAdapterListener, context: Context): Recycle
         }
     }
 
-    init {
-       val db = Room.databaseBuilder(context, AppDatabase::class.java, "task-bancao")
-           .allowMainThreadQueries()
-           .build()
-        dao = db.taskDao()
-        tasks = dao.getAll().toMutableList()
+    fun addTask(task: Task) {
+        tasks.add(0, task)
+        notifyItemInserted(0)
+
+        return
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
