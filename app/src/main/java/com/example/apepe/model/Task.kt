@@ -13,11 +13,12 @@ data class Task (
     var description:String,
     @ColumnInfo(name = "status")
     var status:Boolean
-
-
-
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 
+    override fun equals(other: Any?): Boolean {
+        val task = other as Task?
+        return this.id == task?.id
+    }
 }

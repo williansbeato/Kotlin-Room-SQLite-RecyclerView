@@ -2,7 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,8 +13,6 @@
             android:id="@+id/btSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btDelete"
             app:srcCompat="@android:drawable/ic_menu_save" />
@@ -22,32 +21,32 @@
             android:id="@+id/btDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <EditText
             android:id="@+id/txtDescricao"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toStartOf="@+id/btSave"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
             tools:text="Descrição" />
 
         <EditText
-            android:id="@+id/txtTitulo"
-            android:layout_width="300dp"
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Titulo"
             app:layout_constraintEnd_toStartOf="@+id/btDelete"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
