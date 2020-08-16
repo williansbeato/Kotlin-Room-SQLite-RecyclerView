@@ -59,8 +59,6 @@ class MainActivity : AppCompatActivity(), TaskAdapterListener {
         rvLista.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
-//    override fun onTaskSelected(task: Task) {
-//    }
 
     override fun taskSalvar(task: Task) {
         dao.insert(task)

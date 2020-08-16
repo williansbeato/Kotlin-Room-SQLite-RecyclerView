@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apepe.R
 import com.example.apepe.model.Task
@@ -75,9 +76,15 @@ class TaskAdapter( var tasks: MutableList<Task>, val listener: TaskAdapterListen
             else{
                 itemView.txtitulo.text = task.title
                 if (task.status){
-                    cartao.setCardBackgroundColor(GREEN)
+//                  cartao.setBackgroundColor(GREEN)
+                    cartao.txtitulo.setTextColor(GREEN)
+//                    cartao.ivFeito.visibility = View.VISIBLE
+
                 }else{
-                    cartao.setCardBackgroundColor(RED)
+//                    cartao.setCardBackgroundColor(RED)
+                    cartao.txtitulo.setTextColor(RED)
+//                    cartao.ivNaofeito.visibility = View.VISIBLE
+
                 }
 
                 itemView.setOnLongClickListener {
